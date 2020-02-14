@@ -52,7 +52,7 @@ values."
      themes-megapack
      html
      osx
-     ranger
+     ;;ranger
      emacs-lisp
      spell-checking
      syntax-checking
