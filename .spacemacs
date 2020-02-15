@@ -39,6 +39,14 @@ values."
      projectile
      python
      docker
+     pandoc
+     (ess :variables
+          ess-assign-key "\M--"
+          ess-enable-smart-equals t
+          (add-hook 'ess-mode-hook
+                    (lambda ()
+                      ess-toggle-underscore nil))
+          )
      ivy
      auto-completion
      better-defaults
@@ -125,7 +133,9 @@ values."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+                                (projects . 7)
+                                (todos . 5)
+                                (agenda . 5))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -188,7 +198,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts 1
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -311,7 +321,14 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
- 
+  (desktop-save-mode t)
+  (save-place-mode t)
+  (add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
+  ;; save when frame is closed
+  (add-hook 'delete-frame-functions (lambda () (interactive) (save-some-buffers t)))
+  (global-auto-revert-mode t)
+  (setq global-auto-revert-non-file-buffers t)
+  (setq auto-revert-verbose nil) 
   )
 
 (defun dotspacemacs/user-config ()
