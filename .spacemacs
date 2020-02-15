@@ -52,8 +52,6 @@ values."
      themes-megapack
      html
      osx
-     ;;ranger
-     emacs-lisp
      spell-checking
      syntax-checking
      version-control
