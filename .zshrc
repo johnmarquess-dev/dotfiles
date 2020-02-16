@@ -7,8 +7,11 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+export TEX=/Library/TeX/texbin:$PATH
+
+ #Path to your oh-my-zsh installation.
 export ZSH="/Users/me/.oh-my-zsh"
 
 
@@ -45,12 +48,11 @@ alias s="git status"
 
 
 
-alias .data="source ~/envs/.data/bin/activate"
-alias .base="source ~/envs/.base/bin/activate"
-alias .flask="source ~/envs/.flask/bin/activate"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# Make VS Code work from command line
 
 function code {
     if [[ $# = 0 ]]
