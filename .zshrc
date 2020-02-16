@@ -40,8 +40,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 
-alias zshconfig="emacs ~/.zshrc"
-alias ohmyzsh="emacs ~/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
 alias r="source ~/.zshrc"
 alias s="git status"
 
